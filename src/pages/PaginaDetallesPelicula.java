@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,7 +18,13 @@ public class PaginaDetallesPelicula {
 
 	public void verificarDirector (String nombreDirector) {
 		
-		
+		nombreDirectorPelicula = driver.findElement(By.linkText(nombreDirector));
+		if(nombreDirectorPelicula.isDisplayed()) {
+			System.out.println("El link con el texto " + nombreDirector + " si existe.");
+		} else {
+			System.out.println("El link con el texto " + nombreDirector + " no existe.");
+			System.exit(-1);
+		}
 	
 	}
 
