@@ -23,10 +23,10 @@ public class PaginaPrincipal {
 
 	public void buscarPelicula(String nombrePelicula) {
 		
-		campoBusqueda = driver.findElement(By.id("ID"));
+		campoBusqueda = driver.findElement(By.id("navbar-query"));
 		campoBusqueda.clear();
 		campoBusqueda.sendKeys(nombrePelicula);
-		botonBusqueda = driver.findElement(By.id("id2"));
+		botonBusqueda = driver.findElement(By.id("navbar-submit-button"));
 		botonBusqueda.click();
 		
 	}
