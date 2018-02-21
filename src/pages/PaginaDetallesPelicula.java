@@ -20,9 +20,9 @@ public class PaginaDetallesPelicula {
 		
 		nombreDirectorPelicula = driver.findElement(By.linkText(nombreDirector));
 		if(nombreDirectorPelicula.isDisplayed()) {
-			System.out.println("El link con el texto " + nombreDirector + " si existe.");
+			System.out.println("El link con el texto del director(a): " + nombreDirector + " si existe.");
 		} else {
-			System.out.println("El link con el texto " + nombreDirector + " no existe.");
+			System.out.println("El link con el texto del director(a):" + nombreDirector + " no existe.");
 			System.exit(-1);
 		}
 	
