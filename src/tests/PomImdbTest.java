@@ -13,18 +13,18 @@ public class PomImdbTest extends ParentTest {
 		
 		/*paginaPrincipal > buscarPelicula > WebElement campoBusqueda, botonBusqueda*/
 		
-		PaginaPrincipal pagPrincipal = new PaginaPrincipal();
+		
 		pagPrincipal.buscarPelicula("Thor");
 		
 		/*PaginasResultadosDePeliculas > verificarPeliculaCiertaFecha > abrirPeliculaCiertaFecha > WebElement seccionTitulosPelicula*/
 		
-		PaginasResultadosPeliculas pagResultadosPelicula = new PaginasResultadosPeliculas();
-		pagResultadosPelicula.verificarPeliculaCiertaFecha("Thor", "2011");
-		pagResultadosPelicula.abrirPeliculaCiertaFecha("Thor","2011");
+		
+		pagResultados.verificarPeliculaCiertaFecha("Thor", "2011");
+		pagResultados.abrirPeliculaCiertaFecha("Thor","2011");
 
 		/*paginaDetallesDePelicula > verificarDirector > WebElement nombreDirectorPelicula*/
 		
-		PaginaDetallesPelicula pagDetallesPelicula = new PaginaDetallesPelicula();
+		//PaginaDetallesPelicula pagDetallesPelicula = new PaginaDetallesPelicula("Kenneth Branagh");
 		pagDetallesPelicula.verificarDirector("Kenneth Branagh");
 	}
 
