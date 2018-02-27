@@ -19,8 +19,6 @@ public class PaginaPrincipal {
 		
 	}
 
-
-
 	public void buscarPelicula(String nombrePelicula) {
 		
 		campoBusqueda = driver.findElement(By.id("navbar-query"));
@@ -31,6 +29,4 @@ public class PaginaPrincipal {
 		
 	}
 	
-	
-
 }
