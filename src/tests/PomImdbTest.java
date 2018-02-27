@@ -2,9 +2,9 @@ package tests;
 
 import org.junit.Test;
 
-import pages.PaginaDetallesPelicula;
+/*import pages.PaginaDetallesPelicula;
 import pages.PaginaPrincipal;
-import pages.PaginasResultadosPeliculas;
+import pages.PaginasResultadosPeliculas;*/
 
 public class PomImdbTest extends ParentTest {
 	

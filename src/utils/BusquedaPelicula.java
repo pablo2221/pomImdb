@@ -1,26 +1,40 @@
-package pages;
+package utils;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-public class PaginasResultadosPeliculas {
+public class BusquedaPelicula {
 	
-	WebElement seccionTitulosPelicula;
-	WebElement seccionTitulosPelicula2;
-	private WebDriver driver;
-	
-	public PaginasResultadosPeliculas(WebDriver driver) {
+	static WebDriver driver;
+
+	public static void main(String[] args) {
+		setUp("http://imdb.com");
+		buscarPelicula("It");
+		verificarExistePeliculaCiertaFecha("It", "1990");
+		clickLinkPeliculaCiertaFecha("It", "1990");
 		
-		this.driver = driver;
+
+	}
+
+	private static void setUp(String url) {
+		System.setProperty("webdriver.chrome.driver", "/Users/omarnavarro/test_automation/drivers/chromedriver");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.get(url);
+	}
+
+	private static void buscarPelicula(String nombrePelicula) {
+		driver.findElement(By.id("navbar-query")).sendKeys(nombrePelicula);
+		driver.findElement(By.id("navbar-submit-button")).click();
 		
 	}
 
-	public void verificarPeliculaCiertaFecha (String nombrePelicula, String fecha) {
-		
-		
+	private static void verificarExistePeliculaCiertaFecha(String nombrePelicula, String fecha) {
 		WebElement renglonCorrecto = null;
 		List<WebElement> renglones = driver.findElements(By.xpath("//tr"));
 		for(WebElement renglon: renglones) {
@@ -35,13 +49,9 @@ public class PaginasResultadosPeliculas {
 			System.exit(-1);
 		}
 		
-			
 	}
-		
-	
-	
-	public void abrirPeliculaCiertaFecha (String nombrePelicula, String fecha){
-		
+
+	private static void clickLinkPeliculaCiertaFecha(String nombrePelicula, String fecha) {
 		WebElement renglonCorrecto = null;
 		List<WebElement> renglones = driver.findElements(By.xpath("//tr"));
 		for(WebElement renglon: renglones) {
@@ -55,10 +65,7 @@ public class PaginasResultadosPeliculas {
 		 if(renglonCorrecto != null) {
 			 WebElement linkPelicula = renglonCorrecto.findElement(By.xpath(".//td[@class = 'result_text']//a"));
 			 linkPelicula.click();
-		 }	
-		
-		
+		 }
 	}
-	
 
 }
